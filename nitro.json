@@ -1,0 +1,30 @@
+{
+  "$schema": "https://nitro.margelo.com/nitro.schema.json",
+  "cxxNamespace": [
+    "nitroimage2pdf"
+  ],
+  "ios": {
+    "iosModuleName": "NitroImage2pdf"
+  },
+  "android": {
+    "androidNamespace": [
+      "nitroimage2pdf"
+    ],
+    "androidCxxLibName": "NitroImage2pdf"
+  },
+  "autolinking": {
+    "ImageToPdf": {
+      "ios": {
+        "language": "swift",
+        "implementationClassName": "HybridImageToPdf"
+      },
+      "android": {
+        "language": "kotlin",
+        "implementationClassName": "HybridImageToPdf"
+      }
+    }
+  },
+  "ignorePaths": [
+    "**/node_modules"
+  ]
+}
