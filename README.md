@@ -14,7 +14,7 @@
 
 <p align="left">
   <img src="screenshots/demo-android.gif" alt="Android demo" width="45%" />
-  <img src="screenshots/demo-ios.gif" alt="iOS demo" width="45%" />
+  <img src="screenshots/demo-ios.gif" alt="iOS demo" width="44.5%" />
 </p>
 
 ## 📑 Contents
