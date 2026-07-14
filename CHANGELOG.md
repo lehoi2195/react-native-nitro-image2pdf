@@ -8,6 +8,25 @@ managed by [semantic-release](https://semantic-release.gitbook.io/) based on
 [Conventional Commits](https://www.conventionalcommits.org/) — run `npm run release` to cut a new
 version automatically.
 
+## [1.0.1] - 2026-07-14
+
+### 🐛 Bug Fixes
+
+- **Critical:** removed a leftover `create-nitro-module` scaffold script
+  (`post-script.js`, wired into the `codegen` npm script) that stripped `margelo/nitro/` from the
+  generated Android JNI descriptor as a "custom package name" workaround. Since this project's
+  `HybridImageToPdf.kt` legitimately lives at `com.margelo.nitro.nitroimage2pdf` (the correct,
+  default Nitro convention), that workaround corrupted the descriptor back to the exact
+  `ClassNotFoundException`-causing bug fixed during development — and it shipped in the published
+  `1.0.0` tarball via the `prepublishOnly` hook. **`1.0.0` crashes on Android when `createPdf()` is
+  called; upgrade to `1.0.1` or later.**
+
+### 📚 Documentation
+
+- Replaced non-functional embedded demo videos (GitHub's markdown renderer doesn't play
+  repo-relative or `raw.githubusercontent.com` `<video>` sources — they're served as
+  `application/octet-stream`) with animated GIF previews, which render natively via `<img>`
+
 ## [1.0.0] - 2026-07-14
 
 Initial public release. Full rewrite of the legacy bridge-based `react-native-image-to-pdf` as a
