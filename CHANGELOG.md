@@ -8,6 +8,16 @@ managed by [semantic-release](https://semantic-release.gitbook.io/) based on
 [Conventional Commits](https://www.conventionalcommits.org/) — run `npm run release` to cut a new
 version automatically.
 
+## [1.0.2] - 2026-07-17
+
+### 🛠️ Other changes
+
+- Refined `package.json` `keywords` for npm search discoverability: prefixed
+  react-native-specific terms with `react-native-` (e.g. `react-native-image-to-pdf`,
+  `react-native-pdf-converter`) and kept a focused set of bare terms
+  (`nitro`, `pdf`, `image-to-pdf`, …) covering the core react-native + image-to-PDF
+  use case, dropping unrelated/generic tags
+
 ## [1.0.1] - 2026-07-14
 
 ### 🐛 Bug Fixes
