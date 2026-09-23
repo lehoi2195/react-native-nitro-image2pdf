@@ -2,6 +2,8 @@ package com.margelo.nitro.nitroimage2pdf
 
 import android.content.Context
 import android.util.Base64
+import androidx.annotation.Keep
+import com.facebook.proguard.annotations.DoNotStrip
 import com.margelo.nitro.NitroModules
 import com.margelo.nitro.core.Promise
 import com.margelo.nitro.nitroimage2pdf.CreatePdfOptions
@@ -17,6 +19,10 @@ import java.io.File
 import java.util.UUID
 
 // Bridges HybridImageToPdfSpec to ImageLoader/PdfBuilder; handles output writing.
+// Instantiated only from C++ via JNI (NitroImage2pdfOnLoad.cpp), so R8 can't see
+// a reference — keep it or minified release builds throw ClassNotFoundException.
+@DoNotStrip
+@Keep
 class HybridImageToPdf : HybridImageToPdfSpec() {
   private val context: Context
     get() = NitroModules.applicationContext
