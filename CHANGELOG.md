@@ -8,6 +8,17 @@ managed by [semantic-release](https://semantic-release.gitbook.io/) based on
 [Conventional Commits](https://www.conventionalcommits.org/) — run `npm run release` to cut a new
 version automatically.
 
+## [1.0.3] - 2026-09-23
+
+### 🐛 Bug Fixes
+
+- **Android:** fixed a crash in minified (R8/ProGuard) release builds —
+  `ClassNotFoundException: com.margelo.nitro.nitroimage2pdf.HybridImageToPdf` on first use
+  ([#14](https://github.com/lehoi2195/react-native-nitro-image2pdf/issues/14)). The class is
+  created only from C++ via JNI, so R8 saw no reference and stripped it. It is now annotated
+  with `@DoNotStrip`/`@Keep` and covered by a consumer ProGuard keep rule, so apps no longer
+  need a manual `-keep` rule.
+
 ## [1.0.2] - 2026-07-17
 
 ### 🛠️ Other changes
